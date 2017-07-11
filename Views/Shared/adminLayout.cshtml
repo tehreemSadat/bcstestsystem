@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/icono.min.css">
+    <link rel="stylesheet" href="/css/scrolling-nav.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/fonts/oswald_light/style.css">
+    <link rel="stylesheet" href="/fonts/ostrich_sans/ostrich-sans.css">
+    <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="my-navbar navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a class="navbar-brand" href="#">Test.Taker</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li id="adminHome"><a href="@Url.Action("Index", "Admin")">Home<span class="glyphicon glyphicon-home"></span><span class="sr-only">(current)</span></a></li>
+                    <li id="approval"><a href="@Url.Action("Approval", "Admin")">Approve<span class="glyphicon glyphicon-check"></span></a></li>
+                    @*                    <li id="viewquiz"><a href="@Url.Action("ViewQuiz", "Admin")">View Quiz<span class="glyphicon glyphicon-list-alt"></span></a></li>*@
+                    <li id="add" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="glyphicon glyphicon-plus-sign"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li id="addquiz"><a href="@Url.Action("AddQuiz", "Admin")">Add Quiz</a></li>
+                            <li id="addquestion"><a href="@Url.Action("AddQuestion", "Admin")">Add Question</a></li>
+                        </ul>
+                    </li>
+                    <li id="view" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View <span class="glyphicon glyphicon-list"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li id="viewquiz"><a href="@Url.Action("ViewQuiz", "Admin")">View Quiz</a></li>
+                            <li id="viewresult"><a href="@Url.Action("ViewResult", "Admin")">View Result</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" onclick="ShowAdminSetting()">Setting<span class="glyphicon glyphicon-cog"></span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Session["loginid"]<span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Initialize Db</a></li>
+                            <li><a href="@Url.Action("LogOut", "Home")">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    @RenderBody()
+    <div class="modal fade" id="adminSettingModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Change Password</h3>
+                </div>
+                <div class="modal-body" id="adminSettingModelBody">
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="modal" id="passwordsetting_modal_admin" style="width: 50%; margin: auto; color: white;">
+        <div class="modal-header">
+            <h3>Change Password <span class="extra-title muted"></span></h3>
+        </div>
+        <div class="modal-body form-horizontal">
+            <div class="control-group">
+                <label for="current_password" class="control-label">Current Password</label>
+                <div class="controls">
+                    <input type="password" name="current_password">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="new_password" class="control-label">New Password</label>
+                <div class="controls">
+                    <input type="password" name="new_password">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="confirm_password" class="control-label">Confirm Password</label>
+                <div class="controls">
+                    <input type="password" name="confirm_password">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button href="#" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button href="#" class="btn btn-primary" id="password_modal_save">Save changes</button>
+        </div>
+    </div>*@
+    <!--MY own javascript function-->
+
+    <!-- jQuery library -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/admin.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!--SCROLLING BOOTSRAP CODE-->
+    <script src="/js/scrolling-nav.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
+    <!-- Student Data uploading messages -->
+    <script type="text/javascript"> window.onload = alertServer; </script>
+</body>
+</html>

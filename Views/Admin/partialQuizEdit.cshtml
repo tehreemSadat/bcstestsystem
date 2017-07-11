@@ -1,0 +1,29 @@
+﻿@model TestSystem.Models.Quiz
+
+<form id="myForm" class="form-horizontal" style="width: 50%; margin: auto">
+    @Html.TextBoxFor(m => m.quizid, new { @class = "form-control input-sm", @readonly = "" })
+    
+    <label>Tittle:</label>@Html.TextBoxFor(m => m.tittle, new { @class = "form-control input-sm", @placeholder = "Enter Tittle", @style = "margin-top:10px;" })
+    <label>Marks/Question:</label>@Html.TextBoxFor(m => m.singlemark, new { @class = "form-control input-sm", @placeholder = "Marks per Question", @required = "", @type = "number", @style = "margin-top:10px;" })
+    @Html.ValidationMessageFor(m => m.singlemark, "", new { @class = "error" })
+    <label>Passing %:</label>@Html.TextBoxFor(m => m.passingpercent, new { @class = "form-control input-sm", @placeholder = "Passing Percentage", @required = "", @type = "number", @style = "margin-top:10px;" })
+    @Html.ValidationMessageFor(m => m.passingpercent, "", new { @class = "error" })
+    <label>Instructor:</label>@Html.TextBoxFor(m => m.instructor, new { @class = "form-control input-sm", @placeholder = "Instructor Name", @required = "", @style = "margin-top:10px;" })
+    <div class="form-group">
+        @Html.Label("Upload Date:", new { @style = "margin-top:10px;" })
+        @Html.TextBoxFor(m => m.uploaddate, new { @type = "text", @data_format = "dd/MM/yyyy", @readonly = "" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Expiry Date:")
+        @Html.TextBoxFor(m => m.expirydate, new { @readonly = "" })
+          @Html.ValidationMessageFor(m => m.expirydate, "", new { @class = "error" })
+        <br />
+    </div>
+    <div class="form-group">
+        @Html.Label("Days Expended (to reduce extension give negative value):")
+        @Html.TextBoxFor(m => m.daysExtended, new { @type = "number", @style = "margin-top:10px;", @placeholder = "Number of Days To Expend" })
+        @Html.ValidationMessageFor(m => m.daysExtended, "", new { @class = "error" })
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px; width: 40%" id="btnEditQuiz" onclick="editQuiz1(event);"@*onclick="partialQuizEditQuiz('@(Model)')"*@>Update Quiz Info</button>
+</form>
+

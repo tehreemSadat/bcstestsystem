@@ -1,0 +1,40 @@
+﻿@model TestSystem.Models.Quiz
+
+<div class="table-responsive" style="width:70%;margin:auto">          
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Tittle</td>
+            <td>@Model.tittle</td>
+          </tr>
+            <tr>
+            <td>Instructor</td>
+            <td>@Model.instructor</td>
+          </tr>
+          <tr>
+            <td>Upload Date</td>
+            <td>@Model.uploaddate</td>
+          </tr>
+          <tr>
+            <td>Uploaded By</td>
+            <td>@Model.uploadby</td>
+          </tr>
+            <tr>
+            <td>Expiry Date</td>
+            <td>@Model.expirydate/td>
+          </tr>
+            <tr>
+            <td>Marks per Ques</td>
+            <td>@Model.singlemark</td>
+          </tr>
+           <tr>
+            <td>Passing %</td>
+            <td>@Model.passingpercent</td>
+          </tr>
+           <tr>
+            <td>Total Questions in Db</td>
+            <td>@Model.totalquestion</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>

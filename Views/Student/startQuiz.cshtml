@@ -1,0 +1,45 @@
+﻿@model TestSystem.Models.Quiz
+@{
+    ViewBag.Title = "StartQuiz";
+    Layout = "~/Views/Shared/studentLayout.cshtml";
+}
+
+<div id="StartQuiz" class="container-fluid text-center">
+ @using (Html.BeginForm("QuizQuestion", "Student", FormMethod.Post))
+ {
+     
+      <h1>Instructions</h1>
+     <table class="table">
+         <tr>
+             <th>Tittle: </th>
+             <td style="border-right:1px solid  #1976D2;"> @Model.tittle</td>
+             <th>Instructor: </th>
+             <td style="border-right:1px solid  #1976D2;">@Model.instructor</td>
+             <th>Time Given: </th>
+             <td>Half Minute</td>
+         </tr>
+         <tr>
+             <th>Marks per Question:</th>
+             <td style="border-right:1px solid  #1976D2;">@Model.singlemark</td>
+             <th>Total Marks:</th>
+             <td style="border-right:1px solid  #1976D2;">@Model.singlemark * 5 = @(Model.singlemark*5)</td>
+             <th>Passing Percentage:</th>
+             <td>@Model.passingpercent</td>
+         </tr>
+     </table>
+     
+    <ul style="text-align:left">
+        <li>Please complete all answers with in a given time.</li>
+        <li>If the time limit is exceeded, Quiz will be over automatically.</li>
+        <li>You can not attend the same quiz more than once.</li>
+        <li>Please do not practice any unethical means to complete the quiz.</li>
+        <li>No negative marking.</li>
+        <li>You need atleast @Model.passingpercent percent marks to pass this Quiz.</li>
+        <li>Each question is of @Model.singlemark marks so your total marks are @Model.singlemark * 5 = @(Model.singlemark*5)</li>
+        <li class="text-"><p class="bg-danger text-danger" > <strong>Avoid Refreshing Page</strong> between quiz session otherwise your data will be lost while the time will remain conitnue.</p</li>
+        
+
+    </ul>
+    <button type="submit" style="float:right;width:10%;margin-right:70px;"  class="btn btn-primary btn-lg" onclick="return confirm('Are You Ready to take it?')">Begin....</button>
+ }
+ </div>

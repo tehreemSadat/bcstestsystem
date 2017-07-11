@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a86ca8aa736b4637b90c58f5e68835ea" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="TestsystemModel.Question" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestsystemModel.User" Width="1.5" PointX="4.625" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestsystemModel.Quiz" Width="1.5" PointX="4.375" PointY="0.5" />
+        <EntityTypeShape EntityType="TestsystemModel.Result" Width="1.5" PointX="1.625" PointY="3.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

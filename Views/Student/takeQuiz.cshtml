@@ -1,0 +1,37 @@
+﻿@model List<TestSystem.Models.Quiz>
+@{
+    ViewBag.Title = "TakeQuiz";
+    Layout = "~/Views/Shared/studentLayout.cshtml";
+}
+<div id="TakeQuiz" class="container-fluid text-center">
+    @using (Html.BeginForm("StartQuiz", "Student", FormMethod.Post))
+    {
+    <table class="table table-hover table-bordered table-striped" >
+        <thead >
+            <tr>
+                <th colspan="5" style="font-size:20px;">Pending Quizes</th>
+                @*<th><button type="submit" class="btn btn-primary" onclick="return confirm('Are You sur?')">Accept</button></th>*@
+             </tr>
+            <tr>
+                <th>Tittle</th>
+                <th>Upload Date</th>
+                <th>Expiry Date</th>
+                <th>Instructor Name</th>
+                <th></th>
+             </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td>@item.tittle</td>
+                <td>@item.uploaddate</td>
+                <td>@item.expirydate</td>
+                <td>@item.instructor</td>
+                <td><label><button type="submit" class="btn btn-primary" name="takenQuizId" value="@item.quizid" >Start Quiz</button></label></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>
+

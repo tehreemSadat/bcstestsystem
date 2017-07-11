@@ -1,0 +1,573 @@
+﻿<!DOCTYPE html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/icono.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<header>
+    <!--LOGO-->
+    <a class="navbar-brand" href="#">
+        <img src="css/img/logo.jpg" style="width: 100px; height: auto;" id="head-image"></a>
+    <!--BOOTSRAP NAVBAR-->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="icono-hamburger" onclick=""></i><span class="caret"></span></button>
+                <ul class="dropdown-menu pull-right">
+                    <li><a href="#" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign Up</a> </li>
+                    <li><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Login</a> </li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" data-toggle="modal" data-target="#login" id="log"><span class="glyphicon glyphicon-log-in"></span>Login</a> </li>
+                <li><a href="#" data-toggle="modal" data-target="#signup" id="sig"><span class="glyphicon glyphicon-user"></span>Sign Up</a> </li>
+            </ul>
+        </div>
+        <!--END OF TOP NAVBAR-->
+        <!---CLICK ON LOGIN THIS IS WHAT'S SHOWN-->
+        <!-- LOGIN MODAL -->
+        <div class="modal fade" id="login" role="dialog" style="margin-top:50px;">
+            <div class="alert1">
+                <span class="closebtn">&times;</span>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <div class="modal-header text-center" style="padding: 10px 50px; font-size: 20px;">
+                            <h4><span class="glyphicon glyphicon-lock"></span>Login</h4>
+                        </div>
+                    </div>
+                    <div class="modal-body" style="padding: 40px 50px;" >
+                        <form id="loginForm" role="form" method="post" action="@(Url.Action("Index", "Home"))">
+                            <p id="loginError" class="text-danger bg-danger" style="color: red;"></p>
+                            <div class="form-group">
+                                @*  @Html.ValidationSummary(false, "", new { @class = "text-danger" })*@
+                                <label for="username"><span class="glyphicon glyphicon-user"></span>Username</label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter username" name="uID" value="" required>
+                                @* @Html.TextBoxFor(m => m.loginid, new {@type="text", @class="form-control", @id="username", @placeholder="Enter username", @name="uID", @value="", @required="",@style="margin-bottom:10px;"})*@
+
+                            </div>
+                            <div class="form-group">
+                                <label for="Password"><span class="glyphicon glyphicon-eye-open"></span>Password</label>
+                                <input type="password" class="form-control" id="Password" placeholder="Enter password" name="psw" value="" required>
+                                @*  @Html.TextBoxFor(m => m.loginpassword, new { @type="password", @class="form-control", @id="Password",  @placeholder="Enter password", @name="psw", @value="", @required="",@style="margin-bottom:15px;"})*@
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-block" onclick="loginajax(event)" name="loginBt"><span class="glyphicon glyphicon-off"></span>Login</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+                        <p>Not a member? <a href="#" data-dismiss="modal" onclick="sign()">Sign Up</a></p>
+                        <p><a href="#" onclick="showForgetPswModal()">Forgot my password</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- LOGIN MODAL ENDED-->
+        <!--SIGN UP MODAL -->
+        <div class="modal fade" id="signup" role="dialog">
+            <div class="alert2">
+                <span class="closebtn">&times;</span>
+                <p></p>
+
+            </div>
+            <div class="modal-dialog">
+                .
+                    <!-- Modal content-->
+                <div class="modal-content">
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <div class="modal-header text-center" style="padding: 10px 50px; font-size: 20px;">
+                            <h3><span class="icono-user"></span>&nbsp;Sign-Up</h3>
+                        </div>
+                    </div>
+                    <form id="form1" name="form1" class="form-horizontal" role="form" method="post" action="@(Url.Action("Register", "Home"))">
+                        <div class="modal-body" style="padding: 20px 50px;">
+                            <div class="form-group">
+                                <div class="col-xs-12 col-lg-12">
+                                    <label for="Name">Full Name</label>
+
+                                    <span id="fnameError" style="font-size: medium"></span>
+
+                                    <input onkeyup="validateName()" type="text" class="form-control" id="Name" placeholder="Enter Full name" name="uname" autofocus required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-lg-8">
+
+                                    <label for="UserName">
+                                        <br>
+                                        &nbsp;username</label>
+
+                                    <span id="userlenError" style="color: red; font-size: medium" hidden>: Invalid User Id</span>
+                                    <span id="useravailablityError" style="color: red; font-size: medium" hidden>Userid is not available.</span>
+
+                                    <input type="text" onkeyup="validateId()" class="form-control" id="UseridName" placeholder="Enter your username" name="username" required>
+                                    <small>*Please enter your rollno as userid </small>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="option">
+                                        <br>
+                                        &nbsp;User Type</label>
+                                    <select id="userType" name="usertype" style="width: 100%; padding: 5px;" required>
+                                        <option value="Student" selected>Student</option>
+                                        <option value="Admin">Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6 col-lg-6 col-xs-6 col-md-6">
+                                    <label for="email">
+                                        <br>
+                                        &nbsp;Email</label>
+                                    <input type="email" class="form-control" id="Email" placeholder="Enter your email" name="email" required>
+                                </div>
+                                <!-- <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6">
+                                        <label for="I.D"><span class=></span>Roll No / Emp No</label>
+                                        <input type="text" class="form-control" id="I.D" placeholder="Enter your Roll No / Emp No" name="rollno" onfocusout="empty(this);" required> </div>
+                                </div>-->
+                                <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6 gender">
+                                    <p style="font-weight: bold; margin-top: 7px;">&nbsp;Gender:</p>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" value="Male" checked>Male</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" value="Female">Female</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6">
+                                    <label for="pass">
+                                        <br>
+                                        <span class=""></span>&nbsp;Password</label>
+
+                                    <span id="paslenError" style="color: red; font-size: medium" hidden>: Invalid Pssword </span>
+                                    <span id="pasMatchError" style="color: red; font-size: medium" hidden>: Mismatched Password </span>
+
+                                    <input type="password" onkeyup="validatePsw()" class="form-control" id="Pass" placeholder="Enter your password" name="psw" required>
+                                    <small>* Please enter 6-to-15-length password</small>
+                                </div>
+                                <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6">
+                                    <label for="cpass">
+                                        <br>
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp; Confirm Password</label>
+
+
+
+                                    <input onkeyup="validateCPsw()" type="password" class="form-control" id="cpass" placeholder="Confirm your password" required>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <span class="pull-left">Already created a account? <a href="#" data-dismiss="modal" onclick="login()">Log In</a></span>
+                            <div class="btn-group inline ">
+                                <button type="submit" id="signupbtn" onclick="signUpajax(event)" class="btn btn-small btn-success" name="signupBT"><span class="glyphicon glyphicon-off"></span>Confirm</button>
+                                <button type="submit" class="btn btn-small btn-primary btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-left: 2px;"></span>Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--END OF SIGN UP MODAL-->
+        <div class="modal fade" id="requestSend" style="margin-top:100px;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                        <h3 class="modal-title">Msg From Server</h3>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Your Request has been send Successfully</h4>
+                        <h5>Just wait for your approval from admin.</h5>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div id="pwdModal" class="modal fade" aria-hidden="true" style="margin-top: 60px;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h1 class="text-center">What's My Password?</h1>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="text-center">
+                                            <p id="p1">Type in your username and hit that Request Password Reset button, an email will be sent to the email you provided us when you signed up.</p>
+                                            <p id="p2">Have a nice day!</p>
+                                            <p id="p3"></p>
+                                            <div class="panel-body" id="pwdModalBody">
+                                                <div class="form-group">
+                                                    <input class="form-control input-lg" placeholder="User Id" name="id" type="text" id="forgetid">
+                                                </div>
+                                                <input class="btn btn-lg btn-primary btn-block" onclick="forgetpsw()" value="Request Password Reset" type="submit">
+                                            </div>
+                                            <div class="panel-body" hidden id="hiddentBlock">
+                                                <p>Enter 6 digit Code send to your Email.</p>
+                                                <div id="fn">
+                                                    Code:
+                                                <input type="text" id="code" />
+                                                    <button type="submit" class="btn btn-primary btn-sm" id="btnEditQuiz" onclick="verifyForgetCode(event);">Submit Code</button>
+                                                </div>
+
+                                            </div>
+                                            <div id="resendEmailtag" class="panel-body">
+                                                <p hidden>Try <a onclick="defaultSetting()">resend Email</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-md-12">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </nav>
+    <!--TOP NAVBAR ENDED-->
+</header>
+
+<!--VIDEO BACKGROUND-->
+<div class="container-fluid box">
+    <!--VIDEO BACKGROUND-->
+    <video autoplay="" loop="" muted="" controls="true" poster="resources/css/bpic.png" id="background">
+        <source src="/video/typing1.mp4" type="video/mp4">
+        <source src="/video/typing1.ogv" type="video/ogg; codecs=theora, vorbis">
+        <source src="/video/typing1.webm" type="video/webm; codecs=vp8, vorbis">
+        Your browser does not support the HTML5 video tag. Try updating your browser or using a different one.
+    </video>
+</div>
+
+<!--JUMBOTRON-->
+<div class="jumbotron">
+    <div class="container">
+        <h1>Exam.Taker</h1>
+        <p>
+            Are you afraid you are gonna get caught by cheating? then always be inspired by someone but do not copy!
+                <br>
+            <p><a class="btn btn-primary btn-lg" href="user/about_us.html" role="button">Know About Us</a> </p>
+    </div>
+</div>
+<!--FOOOTER BOOSTRAP-->
+<nav id="footer" class="navbar navbar-default navbar-fixed-bottom navbar-custom">
+    <div class="container-fluid text-center">
+        <h3 id="fheader">BE INSPIRED NOT COPY</h3>
+    </div>
+</nav>
+
+<script>
+    /*IOS CHECKING SCRIPT*/
+    var modaldata;
+    var iOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+    if (iOS === true) {
+        var videoElement = document.getElementById('background');
+        videoElement.style.display = 'none';
+        videoElement.pause();
+        //videoElement.src = ""; // empty source
+        videoElement.load();
+    }
+    window.onload = function () {
+        localStorage.setItem("active", null);
+    }
+    var showForgetPswModal = function () {
+        $("#login").modal("hide");
+        $("#pwdModal").modal("show");
+    }
+    var forgetpsw = function () {
+        var forgetuserid = $("#forgetid").val();
+        $.ajax({
+            type: "POST",
+            url: "/Home/ForgetId",
+            data: { UserId: forgetuserid },
+            success: function (response) {
+                if (response == false) {
+                    $("#p3").css({ 'color': 'red' });
+                    document.getElementById("p3").innerHTML = "Invalid Id...Try Again."
+
+                    $("#pwdModalBody").modal("show");
+                    $("#p1").show();
+                    $("#p2").hide();
+                    $("#hiddentBlock").hide();
+                    $("#resendEmailtag").hide();
+                    $("#pwdModal").modal("show");
+
+                }
+                else {
+                    document.getElementById("p3").innerHTML = "Email Has been Send Successfully."
+                    $("#p3").css({ 'color': 'green' });
+
+
+                    $("#hiddentBlock").show();
+                    $("#pwdModalBody").hide();
+                    $("#p2").hide();
+                    $("#p1").show();
+                    $("#resendEmailtag").hide();
+                    $("#pwdModal").modal("show");
+                    $('input[type=text]').each(function () {
+                        $(this).val('');
+                    });
+                }
+            }
+        })
+    }
+    var login = function () {
+        $("#login").modal("hide");
+        $("#signup").modal("hide");
+        $("#requestSend").modal("show");
+
+    }
+    var sign = function () {
+        //alert("signup");
+        $("#login").modal("hide");
+        $("#signup").modal("show");
+    }
+    var defaultSetting = function () {
+        var forgetcode = $("#code").val();
+        $("#p3").html("");
+        $("#p3").css({ 'color': 'red' });
+        $("#resendEmailtag").hide();
+        $("#pwdModalBody").show();
+        $("#hiddentBlock").hide();
+        $("#p2").show();
+        $("#p1").show();
+        $("#p3").hide();
+    }
+    var verifyForgetCode = function () {
+        var forgetcode = $("#code").val();
+        $.ajax({
+            type: "POST",
+            url: "/Home/CodeComparer",
+            data: { Code: forgetcode },
+            success: function (response) {
+                if (response == false) {
+                    $("#p3").html("Invalid Code...Retype Code.");
+                    $("#p3").css({ 'color': 'red' });
+                    $("#resendEmailtag").show();
+                    $("#pwdModalBody").hide();
+                    $("#hiddentBlock").show();
+                    $("#p2").hide();
+                    $("#p1").hide();
+                    window.setTimeout(function () { defaultSetting() }, 30000)
+                    $("#pwdModal").modal("show");
+                }
+                else {
+                    $("#p3").html("Your userId is your password. Try log in and Change your Password from Setting Module");
+                    $("#p3").css({ 'color': 'green' });
+                    $("#hiddentBlock").hide();
+                    $("#p2").hide();
+                    $("#p1").hide();
+                    $("#resendEmailtag").hide();
+
+                    $("#pwdModalBody").hide();
+
+                    window.setTimeout(function () { defaultSetting() }, 5000)
+                    $("#pwdModal").modal("show");
+                }
+            }
+        })
+    }
+
+    var loginajax = function (e) {
+        e.preventDefault();
+        var userid = $("#username").val();
+        var psw = $("#Password").val();
+        $.ajax(
+        {
+            type: "POST",
+            data: {
+                userId: userid,
+                password: psw
+            },
+            url: "/Home/Validator",
+            success: function (response) {
+                if (response == "Admin") {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Admin/Index",
+                        data: {},
+                        success: function (response1) {
+                            document.open();
+                            document.write(response1);
+                            document.close();
+                        }
+
+                    })
+                } else if (response == "Std") {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Student/Index",
+                        data: {},
+                        success: function (response1) {
+                            document.open();
+                            document.write(response1);
+                            document.close();
+                        }
+
+                    })
+                }
+                else {
+                    $("#loginError").html(response);
+                    $("#loginError").show();
+                }
+            }
+
+        })
+    }
+    var signUpajax = function (e) {
+        e.preventDefault();
+        var fname = $("#Name").val();
+        var userid = $("#UseridName").val();
+        var usertype = $("#userType").val();
+        var email = $("#Email").val();
+        var gen = $("input[name=gender]").val();
+        var psw = $("#Pass").val();
+        var cpsw = $("#cpass").val();
+
+        if (validateName() && validateId() && validatePsw) {
+            $.ajax(
+            {
+                type: "POST",
+                data: {
+                    userId: userid,
+                    fullName: fname,
+                    userType: usertype,
+                    emailid: email,
+                    gender: gen,
+                    pass: psw
+                },
+                url: "/Home/Register",
+                success: function (response) {
+                    if (response == "ok") {
+                        $('#form1')[0].reset();
+                        document.getElementById("fnameError").innerHTML = "";
+                        $("#userlenError").hide();
+                        $("#paslenError").hide();
+                       // alert("successfully send");
+                        $("#requestSend").modal("show");
+                        $("#signup").modal("hide");
+
+
+
+                    }
+                    else {
+                        $("#useravailablityError").show();
+                    }
+                }
+
+            })
+
+
+        }
+
+    }
+    var validateName = function () {
+        var fname = $("#Name").val();
+        if (fname != null && fname != "") {
+            if (fname.match('^[a-zA-Z\\s]*$') && fname.length > 2 && fname.length < 50) {
+                document.getElementById("fnameError").innerHTML = ": Valid Name";
+                $("#fnameError").css({ 'color': 'green' });
+                return true;
+
+            } else {
+                document.getElementById("fnameError").innerHTML = ": Not a valid Name";
+                $("#fnameError").css({ 'color': 'red' });
+                return false;
+            }
+        }
+        else {
+            document.getElementById("fnameError").innerHTML = ": Required";
+            $("#fnameError").css({ 'color': 'red' });
+            return false;
+        }
+
+    }
+    var validateId = function () {
+        var userid = $("#UseridName").val();
+        if (userid.length == 10) {
+            $("#userlenError").hide();
+            return true;
+        } else {
+            $("#userlenError").show();
+            return false;
+        }
+
+    }
+    var validatePsw = function () {
+        var psw = $("#Pass").val();
+        //var re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$")
+        //if (re.test(psw)) {
+        //    $("#paslenError").hide();
+        //} else {
+        //    $("#paslenError").show();
+        //}
+        if (psw.length > 8) {
+            {
+                $("#paslenError").hide();
+                return true;
+            }
+        } else {
+
+            $("#paslenError").show();
+            return false;
+        }
+
+    }
+    var validateCPsw = function () {
+        var psw = $("#Pass").val();
+        var cpsw = $("#cpass").val();
+        //  alert("psw: " + psw + "cpsw: " + cpsw);
+        if (psw != null && psw != "") {
+            if (cpsw != null && cpsw != "") {
+                if (psw != cpsw) {
+                    //alert("Password matched");
+                    document.getElementById("pasMatchError").innerHTML = "Password matched";
+                } else {
+                    // alert("Mis Matched Password")
+                    document.getElementById("pasMatchError").innerHTML = ": Mis Matched Password";
+                }
+            }
+            else {
+                //alert("Required Password")
+                document.getElementById("pasMatchError").innerHTML = "Required Password";
+            }
+        }
+        else {
+            //alert("olla")
+            document.getElementById("pasMatchError").innerHTML = "olla";
+        }
+
+    }
+</script>
+
+<!--MY own javascript function-->
+<script src="js/index.js"></script>
+<!-- jQuery library -->
+<script src="js/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- MainControlServlet error messages Alerts  -->

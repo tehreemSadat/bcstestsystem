@@ -1,0 +1,131 @@
+﻿@model List<TestSystem.Models.Quiz>
+@{
+    ViewBag.Title = "ViewQuiz";
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+<div id="ViewQuiz" class="container-fluid text-center adminBackground">
+    <div id="ViewQuizBody">
+        <form>
+         
+        <table class="table table-hover table-bordered tabledesign ">
+            <thead>
+                <tr class="tittle">
+                <th colspan="3" style="font-size:20px;">Quizes</th>
+                <th style="text-align:center;" colspan="4" rowspan="2" ><input type="submit" class="btn btn-default" value="Search" style="width:70%;background:rgb(0, 153, 153);margin-bottom:30px;color:white" /></th>
+                </tr>
+
+                <tr class="tablesearchPanel" >
+                    <th><label >Tittle: </label><input type="text" name="searchtittle" /></th>
+                    <th><label >Instructor Name: </label><input type="text" name="searchins" /></th>
+                    <th><label>Expiry Date:</label><input type="date" name="searchExpiryDate" value="0001-01-01" /></th>
+                    
+                </tr>
+                <tr class="headers">
+                    <th>Tittle</th>
+                    <th>Instructor Name</th>
+                    <th>Expiry Date</th>
+                    <th>View Detail</th>
+                    <th>Edit Info</th>
+                    <th>Delete</th>
+                    <th>View Questions</th>
+                </tr>
+            </thead>
+            <tbody class="tableBody">
+                @foreach (var item in Model)
+                {
+                    <tr id="row_@item.quizid">
+                        <td>@item.tittle</td>
+                        <td>@item.instructor</td>
+                        <td>@item.expirydate</td>
+                        <td><a href="#" class="btn btn-primary" onclick="ShowQuiz(@item.quizid)"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+                        <td><a href="#" class="btn btn-warning" onclick="EditQuiz(@item.quizid)"><i class="glyphicon glyphicon-edit"></i></a></td>
+                        <td><a href="#" class="btn btn-danger" onclick="ConfirmDelete(@item.quizid)"><i class="glyphicon glyphicon-trash"></i></a></td>
+                        <td><a href="#" class="btn btn-success" onclick="ViewQuestions(@item.quizid)"><i class="glyphicon glyphicon-circle-arrow-right"></i></a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+            </form>
+    </div>
+    @*hidden field for storing current quizId*@
+    <input type="hidden" id="hiddenQuizId" />
+
+    <div class="modal fade" id="deleteQuizModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Delete Quiz</h3>
+                </div>
+                <div class="modal-body">
+                    <h4>Are you sure ? You want to delete this. </h4>
+
+                    @*                    <div style="text-align:center;display:none" id="loaderDiv">
+                        <img src="~/Content/InternetSlowdown_Day.gif" width="150" />
+                    </div>*@
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                    <a href="#" class="btn btn-success" onclick="DeleteQuiz()">Confirm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="showQuizModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Quiz Info</h3>
+                </div>
+                <div class="modal-body" id="showQuizModelBody">
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editQuizModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Edit Quiz Info</h3>
+                </div>
+                <div class="modal-body" id="editQuizModelBody">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editQuestionModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Edit Question Info</h3>
+                </div>
+                <div class="modal-body" id="editQuestionModelBody">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* <div class="modal fade" id="editQuestion">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+
+                </div>
+                <div class="modal-body" id="myModalBodyDiv1">
+                </div>
+            </div>
+        </div>
+    </div>  *@
+</div>
+
+

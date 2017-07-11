@@ -1,0 +1,222 @@
+/******+==================================MIRZA'S THEME=====================================================================================*/
+
+
+/*===================FOR ALL SETTING=======================*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*LOGO*/
+
+#head-image {
+    position: absolute;
+    border: 2px solid rgba(128, 128, 128, 0.23);
+    box-shadow: 10px 1px 30px rgba(0, 0, 0, 0.48);
+    z-index: 1;
+    left:20px;
+}
+
+body:hover{
+    color:black;
+}
+
+/*TOP-NAVBAR*/
+
+.navbar {
+    background: #1976D2;
+    z-index: 1;
+    width: 100%;
+}
+.navbar-right {
+    background: #1976D2;
+}
+.navbar-right li i {
+    display: none;
+}
+.navbar-right li:hover {
+    background-color: #ff6d00;
+}
+.navbar-right li a {
+    display: inline-block;
+}
+.navbar-right a:link,
+.navbar-right a:visited {
+    color: white;
+    font-size: 20px;
+    font-size: 160%;
+}
+
+/*FOCUS PROBLEM FIXED*/
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    background-color: transparent;
+}
+.nav>li>a:link,
+.nav>li>a:viisted {
+    background-color: #1976D2;
+}
+.navbar li {
+    cursor: pointer;
+    background-color: #1976D2;
+}
+
+/*BAR MENU HIDE WHICH IS USED WHEN SCREEN IS 767PX LESS*/
+
+.dropdown-toggle {
+    display: none;
+}
+.modal .icono-user {
+    color: #ff6d00;
+}
+div.modal div.modal-backdrop {
+    z-index: 0;
+}
+/*=========VIDEO BACKGROUND==========*/
+
+
+/* TOP NAV-BAR*/
+
+body.modal-open .p,
+body.modal-open .navbar-nav,
+body.modal-open .jumbotron {
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+body.modal-open div.modal-backdrop {
+    z-index: 0;
+}
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.navbar-rights li:hover span.glyphicon {
+    -webkit-transform: translate(0, -5px);
+    -moz-transform: translate(0, -5px);
+    -o-transform: translate(0, -5px);
+    transform: translate(0, -5px);
+    transform: scale(1.3);
+    transition: 0.9s;
+}
+/*Small Screen 767PX OR LESS(TABLET)*/
+
+
+/*======RESPONSIVE SITE===========*/
+
+
+/*MEDIA QUERY CSS*/
+
+@media only screen and (max-width:767px) {
+    /*Logo*/
+    #head-image {
+        border-radius: 100%;
+        width: 99px;
+        top: 20px;
+        position: absolute;
+    }
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    /*TOP NAVBAR*/
+    .navbar-right {
+        display: inline-block;
+        margin-top: 0%;
+        text-align: center;
+        float:right;
+    }
+    .navbar-right .name{
+        font-size:30px;
+    }
+    
+}
+
+/* END OF INDEX.CSS*/
+
+
+/*STARTING OF ABOUT.CSS*/
+
+.center-block h1 {
+    margin-top: 0%;
+    display: inline-block;
+    background-color: rgba(230, 230, 230, 0.38);
+    font-size: 500%;
+    font-family: 'Pacifico', sans-serif;
+    color: black;
+}
+.row h3 {
+    font-size: 300%;
+}
+body p {
+    font-family: 'Arvo', sans-serif;
+}
+body .p {
+    margin: 10px auto;
+    padding: 30px 100px;
+}
+body h3,
+body cite {
+    font-family: 'Bree Serif', sans-serif;
+}
+#home span h2 {
+    padding: 20px 30px;
+    background-color: rgba(221, 221, 221, 0.46);
+    display: inline-block;
+}
+#home:hover {
+    color: #ff6d00;
+}
+.hfont{
+    font-family: 'Ostrich',sans-serif;
+    font-weight: bold;
+}
+
+/*Small Screen 467PX OR LESS(MOBILE)*/
+
+
+/*======RESPONSIVE SITE===========*/
+
+
+/*MEDIA QUERY CSS*/
+
+@media only screen and (max-width:467px) {
+    .first {
+        background-size: auto;
+    }
+    #head-image {
+        border-radius: 100%;
+        width: 70px;
+    }
+    .p2 h1 {
+        font-size: 200%;
+    }
+    .row p {
+        font-size: 100%;
+    }
+    .row h3 {
+        font-size: 200%;
+    }
+    body .p {
+        padding: 30px 0px;
+    }
+    .navbar-right .name{
+        display: none;
+    }
+}
+#changed.container{
+    /*background-image: url(bpic2.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    margin-top:-20px;
+    padding:40px 0 10px 0;*/
+}
+/******+==================================USE BRACKET OR KOMODO EDIT(RECOMMENDED ONE) OR ELSE IT'S UP TO YOU================================*/

@@ -1,0 +1,264 @@
+
+
+
+.error {
+    color: red;
+}
+
+/* ==========================================================================
+                   Approval Admin
+   ========================================================================== */
+
+.adminBackground{
+    overflow-y: auto;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*text-shadow: 1px 5px 5px black;*/
+}
+#Approval.container-fluid {
+    background-image: linear-gradient(rgba(68, 72, 82, 0.13), rgba(68, 72, 82, 0.13)), url(img/bg.jpg);
+}
+#ViewQuiz.container-fluid {
+    background-image: linear-gradient(rgba(68, 72, 82, 0.13), rgba(68, 72, 82, 0.13)), url(img/bg.jpg);
+}
+#ViewResult.container-fluid {
+    background-image: linear-gradient(rgba(68, 72, 82, 0.13), rgba(68, 72, 82, 0.13)), url(img/bg.jpg);
+}
+#AddQuiz.container-fluid {
+    background-image: linear-gradient(rgba(68, 72, 82, 0.13), rgba(68, 72, 82, 0.13)), url(img/bg.jpg);
+}
+#AddQuestion.container-fluid, #AddQuizQuestion.container-fluid {
+    background-image: linear-gradient(rgba(68, 72, 82, 0.13), rgba(68, 72, 82, 0.13)), url(img/bg.jpg);
+}
+
+    .tabledesign {
+        width: 80%;
+        margin: auto;
+        margin-top: 130px;
+        background: rgba(255,255,255,0.9);
+        border-top: 4px solid rgb(0, 153, 153);
+        overflow:auto;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    .headers {
+        background: rgb(0, 153, 153);
+        color: white;
+        font: Brush Script Std, Brush Script MT, cursive;
+    }
+.tablesearchPanel {
+    color:rgb(0, 153, 153);
+   
+}
+
+    .tittle {
+        /*color: rgb(0, 153, 153);*/
+         font: 1px 'Merienda One', Helvetica, sans-serif;
+  color: rgba(0, 153, 153,1);
+  text-shadow: 3px 3px 3px #fff;
+    }
+#ViewQuiz.tittle {
+
+    border-bottom: 4px solid rgb(0, 153, 153);
+}
+
+
+    .tableBody {
+        font: 15px 'Merienda One', Helvetica, sans-serif;
+        color: rgba(0, 153, 153,1);
+    }
+/*
+#Approval table{
+    width:80%;
+    margin:auto;
+    margin-top:130px;
+    background:rgba(255,255,255,0.8);
+}
+#Approval th{
+    text-align:center;
+}
+    #Approval .headers {
+         background:rgba(255,51,0,0.6);
+         color:white;
+    }
+    #Approval .tittle {
+         background:rgba(255,51,0,0.6);
+         color:white;
+    }*/
+/* ==========================================================================
+                   Home Admin
+   ========================================================================== */
+
+#Home.container-fluid {
+    overflow-y: auto;
+    margin-top: 0px;
+    position: relative;
+    height: 100vh;
+    background-image: linear-gradient(rgba(68, 72, 82, 0.13), rgba(68, 72, 82, 0.13)), url(img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-shadow: 1px 5px 5px black;
+}
+
+#Home .jumbotron {
+    position: absolute;
+    background-color: transparent;
+    display: inline-block;
+    color: white;
+    width: 70%;
+    padding: 30px 0px;
+    top: 16%;
+    left: 15%;
+    transform: translate(0%, 0%);
+    font-family: 'Oswald', sans-serif;
+    font-weight: bolder;
+    background-color: rgba(0, 0, 0, 0.81);
+    letter-spacing: 10px;
+    text-shadow: 1px 3px 10px black;
+    animation-name: background;
+    animation-duration: 3s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    transition: 1s;
+}
+
+    #Home .jumbotron span {
+        color: #ff6d00;
+        animation-name: shines;
+        animation-duration: 3s;
+        animation-direction: alternate-reverse;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+    }
+
+#Home.container-fluid h1 {
+    padding: 10px;
+    font-size: 500%;
+}
+
+#Home.container-fluid #middlep {
+    margin: 0 auto;
+    position: absolute;
+    top: 33%;
+    left: 15%;
+    transform: translate(0%, 50%);
+    display: block;
+    width: 70%;
+    font-family: sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.87);
+    text-shadow: 2px 2px 10px black;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.81);
+}
+
+#Home.container-fluid span {
+    color: rgb(255, 109, 0);
+}
+
+#Home.container-fluid h1 {
+    font-family: 'Ostrich Sans', sans-serif;
+    font-weight: bolder;
+}
+/* ==========================================================================
+                   my-navbar = NAVIGATION BAR
+   ========================================================================== */
+
+.my-navbar {
+    background: #1976D2;
+    border: 0;
+    border-radius: 0;
+    height: 12px;
+}
+
+    .my-navbar .navbar-brand, .my-navbar .navbar-brand:hover {
+        color: white;
+        font-size: 25px;
+    }
+
+    .my-navbar .navbar-nav > li > a {
+        color: white;
+    }
+
+        .my-navbar .navbar-nav > li > a .glyphicon {
+            color: white;
+            margin-left: 10px;
+        }
+
+        .my-navbar .navbar-nav > li > a:hover {
+            background: orange;
+            font-size: 17px;
+            color: white;
+        }
+
+    .my-navbar li:hover .glyphicon {
+        cursor: pointer;
+        transform: scale(1.5);
+        margin-left: 10px;
+        color: white;
+    }
+
+
+    .my-navbar .navbar-nav > .active > a, .navbar-default .navbar-nav > .open > a {
+        background: white;
+        border-bottom: 4px solid orange;
+        text-decoration: double;
+        color: orange;
+    }
+
+        .my-navbar .navbar-nav > .active > a .glyphicon, .navbar-default .navbar-nav > .open > a .glyphicon {
+            color: orange;
+        }
+
+        .my-navbar .navbar-nav > .active > a:hover {
+            background: white;
+            color: orange;
+        }
+
+
+    .my-navbar .dropdown-menu > li > a:hover {
+        color: orange;
+        font-size: 15px;
+    }
+
+    .my-navbar .navbar-toggle, .navbar-default .navbar-toggle:hover {
+        background: white;
+    }
+
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .my-navbar .navbar-nav > li > a {
+        color: orange;
+        background: white;
+    }
+
+        .my-navbar .navbar-nav > li > a :hover {
+            color: orange;
+            font-size: 15px;
+        }
+
+    .my-navbar li:hover .glyphicon {
+        cursor: pointer;
+        transform: scale(1);
+        margin-left: 10px;
+        color: white;
+    }
+
+    .my-navbar .navbar-nav > .active > a, .navbar-default .navbar-nav > .open > a {
+        background: white;
+        border-bottom: 2px solid orange;
+        text-decoration: double;
+        color: orange;
+    }
+}

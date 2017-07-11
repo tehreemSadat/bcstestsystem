@@ -1,0 +1,27 @@
+﻿@model TestSystem.ViewModels.AdminSettingViewModal
+
+<form id="stdSettingForm" class="form-horizontal" style="width: 50%; margin: auto">
+  
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("Current Password:")
+        @Html.PasswordFor(m => m.currentPsw, new { @class = "form-control input-sm" })
+        @Html.ValidationMessageFor(m => m.currentPsw, "", new { @class = "error" })
+
+    </div>
+    <div class="form-group">
+        @Html.Label("New Password:")
+         @Html.PasswordFor(m => m.newPsw, new { @class = "form-control input-sm" })
+        @Html.ValidationMessageFor(m => m.newPsw, "", new { @class = "error" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Retype Password:")
+        @Html.PasswordFor(m => m.retypePsw, new { @class = "form-control input-sm" })
+        @Html.ValidationMessageFor(m => m.retypePsw, "", new { @class = "error" })
+    </div>
+    <div class="form-group">        
+        <button type="submit" class="btn btn-primary"  id="btnAdminSetting" onclick="stdSettingPartial(event);">Update Password</button>
+    </div>
+    
+    
+</form>

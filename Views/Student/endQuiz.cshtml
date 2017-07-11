@@ -1,0 +1,78 @@
+﻿@model TestSystem.ViewModels.ResultGenerateViewModel
+@{
+    ViewBag.Title = "EndQuiz";
+    Layout = "~/Views/Shared/studentLayout.cshtml";
+    var marks = Model.MarksPerQuestion * Model.Correct;
+    var total = Model.TotalQuestions * Model.MarksPerQuestion;
+}
+
+<div id="EndQuiz" class="container-fluid text-center ">
+    <div class="jumbotron">
+        @{ if (Model.Result.Equals("Pass"))
+           {
+            <h1><span style="color: Green;">@Model.Result </span>: You Score @marks Out of @total </h1>
+           }
+           else if (Model.Result.Equals("Fail"))
+           {
+            <h1><span style="color: red;">@Model.Result </span>: You Score @marks Out of @total </h1>
+           }
+           else
+           {   
+            <h1 style="color: blue;">Already Submitted...</h1>
+           }
+        }
+    </div>
+    @{ 
+        if (!Model.Result.Equals("taken"))
+        {
+        <div class="table-responsive" style="width: 70%; margin: auto">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Tittle:</th>
+                        <td>@Model.Tittle</td>
+                    </tr>
+                    <tr>
+                        <th>Instructor:</th>
+                        <td>@Model.Instructor</td>
+                    </tr>
+                    <tr>
+                        <th>Total Questions:</th>
+                        <td>@Model.TotalQuestions</td>
+                    </tr>
+                    <tr>
+                        <th>Attempted:</th>
+                        <td>@Model.Attempted</td>
+                    </tr>
+                    <tr>
+                        <th>Correct:</th>
+                        <td>@Model.Correct</td>
+                    </tr>
+                    <tr>
+                        <th>Wrong:</th>
+                        <td>@Model.Wrong</td>
+                    </tr>
+                    <tr>
+                        <th>Blank:</th>
+                        <td>@Model.Blanks</td>
+                    </tr>
+                    <tr>
+                        <th>Passing Percentage:</th>
+                        <td>@Model.PassPercentage</td>
+                    </tr>
+                    <tr>
+                        <th>Your Percentage:</th>
+                        <td>@Model.Percentage</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        }
+        else
+        {
+            <h3>Resubmission can not be Done</h3>
+        
+        }
+    }
+</div>
+

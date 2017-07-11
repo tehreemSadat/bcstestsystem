@@ -1,0 +1,20 @@
+﻿@model TestSystem.Models.Result
+
+<form id="myResultForm" class="form-horizontal" style="width: 50%; margin: auto">
+    <label>Result Id:</label>
+    @Html.TextBoxFor(m => m.resultid, new { @class = "form-control input-sm", @style = "margin-top:10px;" , @readonly = "" })
+    <label>Tittle:</label>
+    @Html.TextBoxFor(m => m.tittle, new { @class = "form-control input-sm", @style = "margin-top:10px;" , @readonly = "" })
+    <label>Percenatge:</label>
+    @Html.TextBoxFor(m => m.percentage, new { @class = "form-control input-sm", @style = "margin-top:10px;" , @readonly = "" })
+    <label>Obtaned Marks:</label>
+    @Html.TextBoxFor(m => m.obtained_marks, new { @class = "form-control input-sm",  @type = "number", @style = "margin-top:10px;"  })
+    @Html.ValidationMessageFor(m => m.obtained_marks, "", new { @class = "error" })
+    <label>Total Marks:</label>
+     @Html.TextBoxFor(m => m.totalMarks, new { @class = "form-control input-sm",  @style = "margin-top:10px;" , @readonly = "" })
+    <label>Result:</label>
+    @Html.TextBoxFor(m => m.result1, new { @class = "form-control input-sm", @style = "margin-top:10px;", @readonly = ""  })
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px; width: 50%" id="btnEditQuiz" onclick="editResultPartial(event);">Update Quiz Info</button>
+</form>
+
+

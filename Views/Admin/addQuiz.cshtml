@@ -1,0 +1,41 @@
+﻿@model TestSystem.Models.Quiz
+@{
+    ViewBag.Title = "AddQuiz";
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+    
+}
+<div id="AddQuiz" class="container-fluid text-center adminBackground" >
+    @using (Html.BeginForm("AddQuiz", "Admin", FormMethod.Post, new { @id = "myform1", @class = "form-horizontal", @style = "width:50%;margin:auto;margin-top:70px;border:2px solid black;padding:20px;background:rgba(22, 22,44,0.8);color:white" }))
+    {
+        
+        @Html.TextBoxFor(m => m.tittle, new {@class="form-control",@placeholder= "Enter Tittle",@required = "" })
+        @Html.TextBoxFor(m => m.singlemark, new {@class="form-control",@placeholder= "Marks per Question",@required = "", @type="number",@style="margin-top:10px;"  })
+        @Html.ValidationMessageFor(m => m.singlemark, "", new { @class = "error" })
+        @Html.TextBoxFor(m => m.passingpercent, new {@class="form-control",@placeholder= "Passing Percentage",@required = "", @type="number",@style="margin-top:10px;"  })
+        @Html.ValidationMessageFor(m=>m.passingpercent, "", new { @class = "error" })
+        @Html.TextBoxFor(m => m.instructor, new {@class="form-control",@placeholder= "Instructor Name",@required = "",@style="margin-top:10px;" })
+        @Html.Label("Upload By:", new { @style="width:20%;display:block;text-align:left;margin-top:10px;"})
+        @Html.TextBoxFor(m => m.uploadby, new {@class="form-control", @Value=Session["LoginId"], @readonly="" , @style="width:70%;margin:auto;"})
+        
+        <div class="form-group">
+            @Html.Label("Upload Date:",new { @style="margin-top:15px;"})
+              @Html.TextBoxFor(m =>m.uploaddate,new { @type = "date", @Value = DateTime.Now.ToString("yyyy-MM-dd"), @readonly="", @style="color:black;" })
+            @Html.ValidationMessageFor(m => m.uploaddate, "", new { @class = "error" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Expiry Date:")
+            @Html.TextBoxFor(m =>m.expirydate, new { @type = "date",@required = "",@style="color:black;"})
+            @Html.ValidationMessageFor(m => m.expirydate, "", new { @class = "error" })
+            <br />
+            <button type="submit" class="btn btn-info" style="margin-top:10px;width:40%">Add Quiz</button>
+       </div>
+
+    
+    
+    
+
+
+
+    }
+
+</div>

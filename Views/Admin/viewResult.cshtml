@@ -1,0 +1,53 @@
+﻿@model List<TestSystem.Models.Result>
+@{
+    ViewBag.Title = "ViewResult";
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+<div id="ViewResult" class="container-fluid text-center adminBackground">
+    <div id="ViewResultBody">
+        <table class="table table-hover table-bordered tabledesign" >
+            <thead>
+                <tr class="tittle">
+                <th colspan="9" style="font-size:20px;">Result</th>
+                </tr>
+                <tr class="headers">
+                    <th>Student</th>
+                    <th>Tittle</th>
+                    <th>Total Marks</th>
+                    <th>Obtained Marks</th>
+                    <th>Percentage</th>
+                    <th>Result</th>
+                    <th>Edit Result</th>
+                </tr>
+            </thead>
+            <tbody class="tableBody">
+                @foreach (var item in Model)
+                {
+                    <tr id="row_@item.resultid">
+                        <td>@item.std_userid</td>
+                        <td>@item.tittle</td>
+                        <td>@item.totalMarks</td>
+                        <td>@item.obtained_marks</td>
+                        <td>@item.percentage</td>
+                        <td>@item.result1</td>
+                        <td><a href="#" class="btn btn-success" onclick="EditResult(@item.resultid)"><i class="glyphicon glyphicon-edit"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <input type="hidden" id="hiddenResultId" />
+    <div class="modal fade" id="editResultModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h3 class="modal-title">Edit Quiz Info</h3>
+                </div>
+                <div class="modal-body" id="editResultModelBody">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

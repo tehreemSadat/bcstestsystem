@@ -1,0 +1,18 @@
+﻿@model TestSystem.Models.Question
+
+<form id="editQuestionForm" class="form-horizontal" style="width: 50%; margin: auto">
+    <label>Id:</label>@Html.TextBoxFor(m => m.questionid, new { @class = "form-control input-sm", @readonly = "" })
+    <label>Quiz:</label> @Html.DropDownListFor(m => m.quizid, new SelectList(Model.quizOptions, "quizId","tittle"), new { @class = "form-control input-sm", @required = "", @style = "margin-top:10px;" })
+    <label>Question:</label>@Html.TextBoxFor(m => m.question1, new { @class = "form-control input-sm", @placeholder = "Enter Question",@required = "", @style = "margin-top:10px;" })
+    <label>Option1:</label>@Html.TextBoxFor(m => m.opt1, new { @class = "form-control input-sm", @placeholder = "Qption 1", @required = "", @style = "margin-top:10px;" })
+    <label>Option2:</label>@Html.TextBoxFor(m => m.opt2, new { @class = "form-control input-sm", @placeholder = "Qption2", @required = "", @style = "margin-top:10px;" })
+    <label>Option3:</label>@Html.TextBoxFor(m => m.opt3, new { @class = "form-control input-sm", @placeholder = "Option 3", @required = "", @style = "margin-top:10px;" })
+    <label>Option4:</label>@Html.TextBoxFor(m => m.opt4, new { @class = "form-control input-sm", @placeholder = "Option 4", @required = "", @style = "margin-top:10px;" })
+ @*   @Html.TextBoxFor(m => m.ans, new { @class = "form-control input-sm", @placeholder = "Answer", @required = "", @style = "margin-top:10px;" })*@
+    <label>Answer:</label>@Html.DropDownListFor(m => m.ans, new SelectList(Model.optionTypes, "option","ans"), new { @class = "form-control input-sm", @required = "", @style = "margin-top:10px;" })
+   
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px; width: 60%" id="btnEditQuestion" onclick="editQuestionPartial(event);">Update Question Info</button>
+</form>
+
+
+

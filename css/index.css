@@ -1,0 +1,344 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/* 
+    Created on : Mar 17, 2017, 6:12:50 PM
+    Author     : Mirza
+*/
+
+
+/*===================MIRZA'S THEME==========================*/
+
+
+/*===================FOR ALL SETTING=======================*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*LOGO*/
+
+#head-image {
+    position: absolute;
+    border: 2px solid rgba(128, 128, 128, 0.23);
+    box-shadow: 10px 1px 30px rgba(0, 0, 0, 0.48);
+    z-index: 1;
+}
+
+/*ALERT BOX*/
+.alert2,
+.alert1 {
+    display: block;
+    width: 30%;
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+    z-index: 5;
+    margin: 0px;
+    position: fixed;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: 0.9s;
+    text-shadow: 2px 2px 4px black;
+    font-family: monospace;
+}
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.closebtn:hover {
+    color: black;
+}
+
+/*TOP-NAVBAR*/
+
+.navbar {
+    background: #1976D2;
+}
+.navbar-right {
+    background: #1976D2;
+}
+.navbar-right li i {
+    display: none;
+}
+.navbar-right li:hover {
+    background-color: #ff6d00;
+}
+.navbar-right li a {
+    display: inline-block;
+}
+.navbar-right a:link,
+.navbar-right a:visited {
+    color: white;
+    font-size: 20px;
+    font-size: 160%;
+}
+
+/*FOCUS PROBLEM FIXED*/
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    background-color: transparent;
+}
+.nav>li>a:link,
+.nav>li>a:visted {
+    background-color: #1976D2;
+}
+.navbar li {
+    cursor: pointer;
+    background-color: #1976D2;
+}
+
+/*BAR MENU HIDE WHICH IS USED WHEN SCREEN IS 767PX LESS*/
+
+.dropdown-toggle {
+    display: none;
+}
+
+/*FOOTER*/
+
+.navbar-left span {
+    color: white;
+}
+
+/*DESCRIPTION PART*/
+
+.jumbotron {
+    margin-top: 10%;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    text-shadow: 1px 2px 5px black;
+}
+
+/*MODAL*/
+
+.modal .icono-user {
+    color: #ff6d00;
+}
+input:focus {
+    font-size: 15px;
+    color: black;
+    font-weight: bolder;
+}
+body.modal-open video,
+body.modal-open .navbar-nav,
+body.modal-open .jumbotron {
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+body.modal-open .modal-dialog {
+    margin: auto;
+}
+.modal .modal-dialog {
+    padding: 0%;
+    margin: 0% auto;
+}
+.modal .form-group {
+    padding: 0%;
+    margin: 0% auto;
+}
+.modal .form-group select{
+    background-color: #f5cbcb;
+    font-weight: bold;
+}
+.modal .modal-header {
+    padding: 0%;
+    margin: 0% auto;
+}
+.modal .modal-body {
+    margin: 0%;
+    padding: 0%;
+}
+#fheader {
+    color: white;
+    letter-spacing: 5px;
+}
+.gender{
+    padding: 0%;
+    margin-top: 15px;
+}
+
+/*IMAGE IS HIDE AFTER VIDEO LAYER BECAUSE IN IOS IT GONNA BE SHOWN AS THERE WILL BE NO VIDEO TAG MEANS MY SCRIPT IS GONNA DESTROY VIDEO TAG IF IT'S IN IOS*/
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    background-image: url(img/bpic.png);
+    background-position: 60% 2%;
+    background-repeat: no-repeat;
+}
+
+/*=========VIDEO BACKGROUND==========*/
+
+
+/*BACKGROUND VIDEO */
+
+#background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/*Small Screen 767PX OR LESS(TABLET)*/
+
+
+/*======RESPONSIVE SITE===========*/
+
+
+/*MEDIA QUERY CSS*/
+
+@media only screen and (max-width:767px) {
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    /*Logo*/
+    #head-image {
+        position: absolute;
+        top: 20px;
+        z-index: 1;
+    }
+    /*TOP NAVBAR*/
+    .navbar-right {
+        display: none;
+        margin-top: 5%;
+        text-align: center;
+    }
+    /***MENU BAR IS Icon which is named as .icono-hamburger***/
+    .navbar .icono-hamburger {
+        display: block;
+        float: right;
+        cursor: pointer;
+    }
+    /*--MENU BAR OPTION--*/
+    /*--MENU BAAR IS ICON BUT ALSO A DROPDOWN*/
+    .dropdown-toggle:hover,
+    .dropdown-toggle:active {
+        background-color: #1976D2;
+        border: 2px solid #1976D2;
+    }
+    /*OPEN AND CLOSE*/
+    .dropdown-toggle:active,
+    .open .dropdown-toggle,
+    .close .dropdown-toggle {
+        background: #1976D2 !important;
+        border: 0px;
+        margin-top: 5px;
+    }
+    .dropdown-toggle .dropdown-menu {
+        float: right;
+    }
+    .dropdown-menu {
+        background-color: #1976D2;
+        margin-top: 52px;
+        font-size: 20px;
+    }
+    .dropdown-menu li a {
+        color: White;
+    }
+    .dropdown-toggle {
+        display: block;
+    }
+    .navbar button {
+        float: right;
+        background-color: #1976D2;
+        border: 2px solid #1976D2;
+    }
+    /*===VIDEO BACKGROUND=========*/
+    #background {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: 100%;
+        z-index: -100;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+    /*FOOTER ELEMENT INLINE-BLOCK*/
+    .navbar-default li {
+        display: inline-block;
+    }
+    /*===ALERT BOX==*/
+    .alert {
+        width: 70%;
+    }
+    .alert p {
+        font-size: 100%;
+    }
+}
+
+/*Small Screen 467PX OR LESS(MOBILE)*/
+/*======RESPONSIVE SITE===========*/
+/*MEDIA QUERY CSS*/
+@media only screen and (max-width:467px) {
+    /*========DESCRIPTION PART======*/
+    .jumbotron h1 {
+        font-size: 190%;
+        font-weight: bold;
+        text-shadow: 0px 2px 4px black;
+    }
+    .jumbotron p {
+        font-size: 120%;
+        text-shadow: 0px 2px 4px black;
+    }
+    /*========VIDEO BACKGROUND===*/
+    #background {
+        margin-top: 22%;
+        transform: scale(3);
+    }
+    #background {
+        position: fixed;
+        top: 40%;
+        left: 10%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: 100%;
+        z-index: -100;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+    }
+    #fheader {
+        font-size: 20px;
+    }
+    /*===ALERT BOX===*/
+    .alert {
+        width: 60%;
+    }
+    .alert p {
+        font-size: 13px;
+    }
+}
+
+/*=======USE BRACKET(RECOMMENDED ONE) OR KOMODO EDIT OR ELSE IT'S UP TO YOU==*/

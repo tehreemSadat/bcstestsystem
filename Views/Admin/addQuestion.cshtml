@@ -1,0 +1,32 @@
+﻿@model TestSystem.Models.Question
+@{
+    ViewBag.Title = "AddQuestion";
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+    var listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem { Text = "opt1", Value = "1" });
+    listItems.Add(new SelectListItem { Text = "opt2", Value = "2" });
+    listItems.Add(new SelectListItem { Text = "opt3", Value = "3" });
+    listItems.Add(new SelectListItem { Text = "opt4", Value = "4" });
+}
+
+<div id="AddQuestion" class="container-fluid text-center adminBackground">
+    @using (Html.BeginForm("AddQuestion", "Admin", FormMethod.Post, new { @class = "form-horizontal", @style = "width:50%;margin:auto;margin-top:70px;border:2px solid black;padding:20px;background:rgba(22, 22,44,0.8);color:white" }))
+    {
+        @Html.DropDownListFor(m => m.quizid, new SelectList(ViewBag.quizOptions, "quizId", "tittle"), new { @class = "form-control input-sm", @style = "margin-top:10px;" })
+        @Html.TextBoxFor(m => m.question1, new { @class = "form-control", @placeholder = "Enter Question", @required = "", @style = "margin-top:10px;" })
+        @Html.TextBoxFor(m => m.opt1, new { @class = "form-control", @placeholder = "Option-1", @required = "", @style = "margin-top:10px;" })
+        @Html.TextBoxFor(m => m.opt2, new { @class = "form-control", @placeholder = "Option-2", @required = "", @style = "margin-top:10px;" })
+        @Html.TextBoxFor(m => m.opt3, new { @class = "form-control", @placeholder = "Option-3", @required = "", @style = "margin-top:10px;" })
+        @Html.TextBoxFor(m => m.opt4, new { @class = "form-control", @placeholder = "Option-4", @required = "", @style = "margin-top:10px;" })
+        
+        <label style="width: 30%; display: block; margin-top: 10px; text-align: left;">Answer:</label>
+      
+        @Html.DropDownListFor(m => m.ans, listItems, new { @style = "width:70%;margin:auto", @class = "form-control" });    
+       
+        
+        <br />
+        <button type="submit" class="btn btn-info" style="margin-top: 10px; width: 40%">Add Question</button>
+
+    }
+
+</div>

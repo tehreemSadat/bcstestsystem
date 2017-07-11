@@ -1,0 +1,75 @@
+﻿@model List<TestSystem.Models.Question>
+@{
+    ViewBag.Title = "ViewQuestions";
+}
+
+<div class="table-responsive adminBackground" style="width: 70%; margin: auto">
+    <table class="table  tabledesign">
+        <thead>
+            <tr class="tittle" >
+                <th colspan="6">Questions</th>
+            </tr>
+            <tr class="headers">
+                <th>Question</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+                <th>Option 4</th>
+                <th>Correct Ans</th>
+            </tr>
+        </thead>
+        <tbody class="tableBody">
+            @{
+                foreach (var ques in Model)
+                {
+                <tr id="quesrow_@ques.questionid" >
+                    <td>@ques.question1</td>
+                    <td>@ques.opt1</td>
+                    <td>@ques.opt2</td>
+                    <td>@ques.opt3</td>
+                    <td>@ques.opt4</td>
+                    <td>@ques.ans</td>
+                    <td><a href="#" class="btn btn-success" onclick="EditQuestion(@ques.questionid)"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                    <td><a href="#" class="btn btn-danger" onclick="ConfirmQuesDel(@ques.questionid)"><i class="glyphicon glyphicon-trash"></i></a></td>
+                </tr>
+                
+                }
+                
+            }
+        </tbody>
+        @*<a href="#" class="btn btn-primary" onclick="BackFromViewQues()">Back</a>*@
+    </table>
+     <input type="hidden" id="hiddenQuesId" />  
+</div>
+
+
+<div class="modal fade" id="viewQuestionModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h3 class="modal-title">Edit Quiz Info</h3>
+            </div>
+            <div class="modal-body" id="viewQuestionModelBody">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deleteQuesModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h3 class="modal-title">Delete Question</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Are you sure ? You want to delete this. </h4>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-success" onclick="DeleteQuestion()">Confirm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
